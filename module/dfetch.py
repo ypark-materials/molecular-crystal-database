@@ -85,7 +85,10 @@ def dfload(df, header):
     angle_def = np.radians(df[['alpha_def', 'beta_def', 'gamma_def']].values) #reference state
 
     # Loads the header parameters
-    para = df[header]
+    if header == []:
+        para = 0
+    else:
+        para = df[header]
 
     return abc_ref, abc_def, angle_ref, angle_def, para
 
